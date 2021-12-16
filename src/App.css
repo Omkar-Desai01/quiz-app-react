@@ -18,9 +18,11 @@ body {
   background-color: rgb(50, 169, 205);
   margin-bottom: 5px;
   border-radius: 20px;
+  cursor: pointer;
 }
 .question {
   background-color: aqua;
   padding: 10px 30px;
   border-radius: 20px;
+  font-family: "Courier New", Courier, monospace;
 }

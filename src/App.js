@@ -7,9 +7,11 @@ import Confety from "./components/Confety";
 
 export default function App() {
   const [question, setQuestion] = useState("QUESTION");
-  const [correctAns, setCorrectAns] = useState("QUESTION");
+  const [correctAns, setCorrectAns] = useState("");
   const [answers, setAnswers] = useState([]);
-  let data;
+  const [win, setWin] = useState("");
+  const [winMessage, setWinMessage] = useState("");
+
   React.useEffect(() => {
     axios
       .get(
@@ -30,14 +32,26 @@ export default function App() {
   }, []);
 
   const checkAns = (e) => {
-    console.log(e.target.textContent);
+    console.log(e.target.textContent, correctAns);
+    if (e.target.textContent == correctAns) {
+      setWin(<Confety />);
+      setWinMessage("Correct Answer 🎉🎉");
+    } else {
+      setWin("");
+      setWinMessage("Wrong Answer 👎👎");
+    }
+  };
+
+  const next = () => {
+    setWin("");
   };
 
   return (
     <div>
-      <Confety />
+      {win}
       <Header />
       <div className="mainContainer">
+        <h1>{winMessage}</h1>
         <h1 className="question">{question}</h1>
         <div>
           {answers[0] && (
@@ -61,6 +75,7 @@ export default function App() {
             </div>
           )}
         </div>
+        <button onClick={next}>Next Question</button>
       </div>
     </div>
   );
