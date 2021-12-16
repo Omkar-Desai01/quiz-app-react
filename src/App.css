@@ -9,4 +9,18 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 0px 20px;
+}
+.ans {
+  font-size: larger;
+  font-family: sans-serif;
+  padding: 10px;
+  background-color: rgb(50, 169, 205);
+  margin-bottom: 5px;
+  border-radius: 20px;
+}
+.question {
+  background-color: aqua;
+  padding: 10px 30px;
+  border-radius: 20px;
 }
